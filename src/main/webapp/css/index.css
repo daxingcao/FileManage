@@ -1,0 +1,39 @@
+
+.zhanshi-big{
+	width: 75%;
+	min-width: 630px;
+	margin-top:5px;
+	float: left;
+}
+
+.zhanshi-tupian-small{
+	/* border:1px solid blue; */
+	border-radius:8px;
+	float:left;
+	width:32%;
+	margin:5px;
+	min-width:300px;
+	height: 200px;
+}
+.zhanshi-tupian-smalls {
+	/* border:1px solid blue; */
+	border-radius:8px;
+	float:left;
+	width:32%;
+	margin:5px;
+	min-width:300px;
+	height: 200px;
+	box-shadow: 5px 5px 5px #888888;
+}
+#tupian-div img {
+	width: 100%;
+	height: 200px;
+}
+#nmue-content li a {
+	width:200px;
+	padding: 15px 70px;
+}
+/* .navbar-nav li a:hover {
+	font-size:20px;
+	background-color: blue;
+} */

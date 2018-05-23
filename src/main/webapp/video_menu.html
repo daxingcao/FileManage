@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/index-left.css" />
+</head>
+<body>
+<div class="left-div">
+	<div class="left-list-div" id="containor">
+		<div class='panel panel-default left-list-default'>
+			<div class="left-list-hand">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" href="#collapseOne">
+						<i class="glyphicon glyphicon-plus-sign"></i>&nbsp;视频
+					</a>
+				</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in">
+				<div class="left-list-body">
+					<h5><a id="http://www.youku.com/" onclick="childSkip(this)" href="javascript:void(0)">优酷</a></h5>
+					<h5><a id="http://www.iqiyi.com/" onclick="childSkip(this)" href="javascript:void(0)">爱奇艺</a></h5>
+					<h5><a id="https://v.qq.com/" onclick="childSkip(this)" href="javascript:void(0)">腾讯</a></h5>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+function childSkip(e){
+	parent.skipPage(e);
+}
+</script>
+</body>
+</html>

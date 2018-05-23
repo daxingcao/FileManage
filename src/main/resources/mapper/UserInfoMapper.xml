@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caodaxing.main.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.caodaxing.main.entity.UserInfo">
+    <id column="INFO_ID" jdbcType="INTEGER" property="infoId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_AGE" jdbcType="INTEGER" property="userAge" />
+    <result column="USER_GANDER" jdbcType="INTEGER" property="userGander" />
+    <result column="USER_ADDRESS" jdbcType="VARCHAR" property="userAddress" />
+    <result column="USER_QQ" jdbcType="VARCHAR" property="userQq" />
+    <result column="USER_WECHAT" jdbcType="VARCHAR" property="userWechat" />
+    <result column="USER_MOBILE" jdbcType="VARCHAR" property="userMobile" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    INFO_ID, USER_NAME, USER_AGE, USER_GANDER, USER_ADDRESS, USER_QQ, USER_WECHAT, USER_MOBILE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from USER_INFO
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from USER_INFO
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.caodaxing.main.entity.UserInfo">
+  	<selectKey resultType="java.lang.Integer" keyProperty="infoId" order="AFTER" >
+  		SELECT LAST_INSERT_ID()
+  	</selectKey>
+    insert into USER_INFO (INFO_ID, USER_NAME, USER_AGE, 
+      USER_GANDER, USER_ADDRESS, USER_QQ, 
+      USER_WECHAT, USER_MOBILE)
+    values (#{infoId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userAge,jdbcType=INTEGER}, 
+      #{userGander,jdbcType=INTEGER}, #{userAddress,jdbcType=VARCHAR}, #{userQq,jdbcType=VARCHAR}, 
+      #{userWechat,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caodaxing.main.entity.UserInfo">
+    insert into USER_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="infoId != null">
+        INFO_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="userAge != null">
+        USER_AGE,
+      </if>
+      <if test="userGander != null">
+        USER_GANDER,
+      </if>
+      <if test="userAddress != null">
+        USER_ADDRESS,
+      </if>
+      <if test="userQq != null">
+        USER_QQ,
+      </if>
+      <if test="userWechat != null">
+        USER_WECHAT,
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="infoId != null">
+        #{infoId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userAge != null">
+        #{userAge,jdbcType=INTEGER},
+      </if>
+      <if test="userGander != null">
+        #{userGander,jdbcType=INTEGER},
+      </if>
+      <if test="userAddress != null">
+        #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null">
+        #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="userWechat != null">
+        #{userWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caodaxing.main.entity.UserInfo">
+    update USER_INFO
+    <set>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userAge != null">
+        USER_AGE = #{userAge,jdbcType=INTEGER},
+      </if>
+      <if test="userGander != null">
+        USER_GANDER = #{userGander,jdbcType=INTEGER},
+      </if>
+      <if test="userAddress != null">
+        USER_ADDRESS = #{userAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null">
+        USER_QQ = #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="userWechat != null">
+        USER_WECHAT = #{userWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null">
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caodaxing.main.entity.UserInfo">
+    update USER_INFO
+    set USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_AGE = #{userAge,jdbcType=INTEGER},
+      USER_GANDER = #{userGander,jdbcType=INTEGER},
+      USER_ADDRESS = #{userAddress,jdbcType=VARCHAR},
+      USER_QQ = #{userQq,jdbcType=VARCHAR},
+      USER_WECHAT = #{userWechat,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR}
+    where INFO_ID = #{infoId,jdbcType=INTEGER}
+  </update>
+</mapper>
