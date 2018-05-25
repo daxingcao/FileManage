@@ -52,7 +52,7 @@
     <context-param>
     	<param-name>contextConfigLocation</param-name>
         <param-value>
-        	classpath:resource/crm_redisbeans.xml,classpath:resource/crm_spring*.xml,classpath:resource/amqbeans.xml
+        	classpath:resource/crm_redisbeans.xml,classpath:resource/crm_spring*.xml,classpath:resource/amqbeans.xml,classpath:resource/spring_job.xml
         </param-value>
     </context-param>
     <!-- 监听 -->
