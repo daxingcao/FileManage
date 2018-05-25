@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 实例Bean -->
+	<bean id="jobQuartzTest" class="com.caodaxing.main.controller.JobQuartzTest"></bean>
+	<!-- 将任务类注入到job中 -->
+	<bean id="exampleJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 要执行的任务类 -->
+		<property name="targetObject" ref="jobQuartzTest" />
+		<!-- 执行的方法 -->
+		<property name="targetMethod" value="execute" />
+		<!-- 是否等待上一个任务执行完成 -->
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="exampleJobDetailTwo" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 要执行的任务类 -->
+		<property name="targetObject" ref="jobQuartzTest" />
+		<!-- 执行的方法 -->
+		<property name="targetMethod" value="executeTwo" />
+		<!-- 是否等待上一个任务执行完成 -->
+		<property name="concurrent" value="false" />
+	</bean>
+	<!-- 任务定时 -->
+	<bean id="exampleJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="exampleJobDetail" />
+		<property name="cronExpression">
+			<value>0 0/1 15 * * ?</value>
+		</property>
+	</bean>
+	
+	<bean id="exampleJobTriggerTwo" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="exampleJobDetailTwo" />
+		<property name="cronExpression">
+			<value>0 0/1 15 * * ?</value>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="exampleJobTrigger" />
+				<ref bean="exampleJobTriggerTwo" />
+			</list>
+		</property>
+	</bean>
+	
+</beans>
