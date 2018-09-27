@@ -2,6 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
+
 	<!-- 实例Bean -->
 	<bean id="jobQuartzTest" class="com.caodaxing.main.controller.JobQuartzTest"></bean>
 	<!-- 将任务类注入到job中 -->
